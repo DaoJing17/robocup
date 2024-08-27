@@ -1,0 +1,5 @@
+<launch>
+  <node name="main" pkg="face_rec" type="main" output="screen"/>
+  <node name="result" pkg="face_rec" type="face_recognition" output="screen"/>
+  <node name="record_video" pkg="face_rec" type="record_video" output="screen"/>
+</launch>

@@ -6,7 +6,6 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 import json
 import cv2
-from gtts import gTTS
 import os
 import subprocess
 import threading
@@ -36,11 +35,7 @@ class VideoRecording:
         data = json.loads(received_payload.data)
         print('RECORD VIDEOOO')
         if data == "True":
-            try:
-                self.text2audio("Hi! I am your receptionist for today! What is your name?")
-                self.RECORD = True
-            except:
-                rospy.loginfo("Error with video and audio recording...")
+            self.RECORD = True
     
     def record_video_callback(self, image):
         if self.RECORD:
@@ -140,11 +135,6 @@ class VideoRecording:
         wf.writeframes(b''.join(frames))
         wf.close()
 
-    def text2audio(self, text):
-        tts = gTTS(text)
-        tts.save("main_audio.mp3")
-        os.system("mpg321 main_audio.mp3")
-        os.remove("main_audio.mp3")
         
 if __name__ == "__main__":
     try:

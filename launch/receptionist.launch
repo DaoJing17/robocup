@@ -1,0 +1,6 @@
+<launch>
+    <node name="receptionist_main" pkg="robocup" type="human_detection.py" output="screen" />
+    <node name="navi_point" pkg="robocup" type="structured_navigation.py" output="screen" />
+    <node name="record_video" pkg="robocup" type="record_video.py" output="screen" />
+    <node name="get_details" pkg="robocup" type="get_details.py" output="screen" />
+</launch>
